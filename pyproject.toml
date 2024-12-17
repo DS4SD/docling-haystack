@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docling-haystack"
-version = "0.1.0"
+version = "0.1.1"   # DO NOT EDIT, updated automatically
 description = "Docling Haystack converter"
 authors = ["Panos Vagenas <pva@zurich.ibm.com>"]
 readme = "README.md"
