@@ -1,4 +1,4 @@
-# Docling Haystack converter
+# Haystack Docling integration
 
 [![PyPI version](https://img.shields.io/pypi/v/docling-haystack)](https://pypi.org/project/docling-haystack/)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/docling-haystack)](https://pypi.org/project/docling-haystack/)
@@ -9,7 +9,7 @@
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![License MIT](https://img.shields.io/github/license/DS4SD/docling)](https://opensource.org/licenses/MIT)
 
-A [Docling](https://github.com/DS4SD/docling) converter integration for
+A [Docling](https://github.com/DS4SD/docling) integration for
 [Haystack](https://github.com/deepset-ai/haystack/).
 
 ## Installation
@@ -21,7 +21,9 @@ pip install docling-haystack
 
 ## Usage
 
-Basic usage in a Haystack pipeline looks as follows:
+### Basic usage
+
+Basic usage of `DoclingConverter` looks as follows:
 
 ```python
 from haystack import Pipeline
@@ -33,5 +35,20 @@ converter = DoclingConverter()
 idx_pipe.add_component("converter", converter)
 # ...
 ```
+### Advanced usage
 
-For end-to-end usage samples check out the [examples](examples/).
+When initializing a `DoclingConverter`, you can use the following parameters:
+
+- `converter` (optional): any specific Docling `DocumentConverter` instance to use
+- `convert_kwargs` (optional): any specific kwargs for conversion execution
+- `export_type` (optional): export mode to use: `ExportType.DOC_CHUNKS` (default) or
+    `ExportType.MARKDOWN`
+- `md_export_kwargs` (optional): any specific Markdown export kwargs (for Markdown mode)
+- `chunker` (optional): any specific Docling chunker instance to use (for doc-chunk
+    mode)
+- `meta_extractor` (optional): any specific metadata extractor to use
+
+### Example
+
+For an end-to-end usage example, check out
+[this notebook](https://ds4sd.github.io/docling/examples/rag_haystack/).
